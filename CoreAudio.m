@@ -50,7 +50,7 @@ static OSStatus test (void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags,
     
     id<CoreAudioDelegate> delegate = (__bridge id<CoreAudioDelegate>)inRefCon;
     
-    Float32 frecuency[256];
+    Float32 frecuency[numberOfFramesOver2];
     
     vDSP_zvabs(&output, 1, frecuency, 1, numberOfFramesOver2);
     

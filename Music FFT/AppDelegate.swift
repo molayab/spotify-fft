@@ -49,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         //print(controller.clearAudioBuffers())
     }
     
+    func next() {
+        player.skipNext(nil);
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         print(url)
         
@@ -59,12 +63,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
                 
                 
                 
-                let width = (self.window?.bounds.width)! / 16
+                let width = (self.window?.bounds.width)! / 8
                 let y = self.window?.bounds.height
                 
                 var post = 0
                 
-                for _ in 1...17 {
+                var new = self.window?.frame
+                new?.origin.x = (new?.size.width)! / 2
+                new?.origin.y = (new?.size.height)! / 2
+                new?.size.width = 100
+                new?.size.height = 30
+                
+                let btn = UIButton(frame: CGRect(x: (new?.size.width)! / 2, y: 200, width: 100, height: 30))
+                btn.setTitle("Next", for: .normal)
+                btn.titleLabel?.text = "Next"
+                btn.setTitleColor(UIColor.black, for: .normal)
+                
+                btn.addTarget(self, action: #selector(AppDelegate.next as (AppDelegate) -> () -> ()), for: .touchUpInside)
+                
+                for _ in 3...11 {
                     let view = UIView(frame: CGRect(x: Int(post), y: 0, width: Int(width), height: 30))
                     view.backgroundColor = UIColor.gray
                     
@@ -72,6 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
                     
                     self.viewController.view.addSubview(view)
                 }
+                
+                self.viewController.view.addSubview(btn)
                 
                 self.window?.rootViewController?.present(self.viewController, animated: true, completion: nil)
             })
@@ -102,15 +121,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     }
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-        player.playSpotifyURI("spotify:track:2xNZeeqmwMPVKnD7FSQfgt", startingWith: 0, startingWithPosition: 0, callback: { (error) in
+        player.setShuffle(true, callback: nil)
+        player.playSpotifyURI("spotify:user:molayab:playlist:5nOlUs1zwctAa2talWYiwf", startingWith: 0, startingWithPosition: 0, callback: { (error) in
             
         })
     }
     
     func frecuencies(_ frecuencies: UnsafeMutablePointer<Float32>!) {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.005, animations: {
-                for i in 0...16 {
+            UIView.animate(withDuration: 0.1, animations: {
+                for i in 0...8 {
                     self.viewController.view.subviews[i].frame = CGRect(
                         x: self.viewController.view.subviews[i].frame.origin.x,
                         y: 0,
