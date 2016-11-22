@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2083E7A01DE3DB5800CEB5A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083E79F1DE3DB5800CEB5A8 /* AppDelegate.swift */; };
+		2083E7A21DE3DB5800CEB5A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083E7A11DE3DB5800CEB5A8 /* ViewController.swift */; };
+		2083E7A51DE3DB5800CEB5A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2083E7A31DE3DB5800CEB5A8 /* Main.storyboard */; };
+		2083E7A71DE3DB5800CEB5A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2083E7A61DE3DB5800CEB5A8 /* Assets.xcassets */; };
+		2083E7AA1DE3DB5800CEB5A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2083E7A81DE3DB5800CEB5A8 /* LaunchScreen.storyboard */; };
+		2083E7B41DE3DC0800CEB5A8 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083E7B11DE3DC0800CEB5A8 /* SpotifyAudioPlayback.framework */; };
+		2083E7B51DE3DC0800CEB5A8 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083E7B21DE3DC0800CEB5A8 /* SpotifyAuthentication.framework */; };
+		2083E7B61DE3DC0800CEB5A8 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083E7B31DE3DC0800CEB5A8 /* SpotifyMetadata.framework */; };
+		2083E7B91DE3DCDB00CEB5A8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083E7B81DE3DCDB00CEB5A8 /* AVFoundation.framework */; };
+		2083E7C61DE40A2600CEB5A8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083E7C51DE40A2600CEB5A8 /* Accelerate.framework */; };
+		2083E7C91DE40D1E00CEB5A8 /* CoreAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2083E7C81DE40D1E00CEB5A8 /* CoreAudio.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2083E79C1DE3DB5800CEB5A8 /* Music FFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music FFT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2083E79F1DE3DB5800CEB5A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2083E7A11DE3DB5800CEB5A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2083E7A41DE3DB5800CEB5A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2083E7A61DE3DB5800CEB5A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2083E7A91DE3DB5800CEB5A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2083E7AB1DE3DB5800CEB5A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2083E7B11DE3DC0800CEB5A8 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		2083E7B21DE3DC0800CEB5A8 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		2083E7B31DE3DC0800CEB5A8 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		2083E7B81DE3DCDB00CEB5A8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2083E7BA1DE3DF9B00CEB5A8 /* Music FFT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Music FFT-Bridging-Header.h"; sourceTree = "<group>"; };
+		2083E7C51DE40A2600CEB5A8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		2083E7C71DE40D1E00CEB5A8 /* CoreAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAudio.h; sourceTree = "<group>"; };
+		2083E7C81DE40D1E00CEB5A8 /* CoreAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAudio.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2083E7991DE3DB5700CEB5A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2083E7C61DE40A2600CEB5A8 /* Accelerate.framework in Frameworks */,
+				2083E7B91DE3DCDB00CEB5A8 /* AVFoundation.framework in Frameworks */,
+				2083E7B41DE3DC0800CEB5A8 /* SpotifyAudioPlayback.framework in Frameworks */,
+				2083E7B61DE3DC0800CEB5A8 /* SpotifyMetadata.framework in Frameworks */,
+				2083E7B51DE3DC0800CEB5A8 /* SpotifyAuthentication.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2083E7931DE3DB5700CEB5A8 = {
+			isa = PBXGroup;
+			children = (
+				2083E7C71DE40D1E00CEB5A8 /* CoreAudio.h */,
+				2083E7C81DE40D1E00CEB5A8 /* CoreAudio.m */,
+				2083E79E1DE3DB5800CEB5A8 /* Music FFT */,
+				2083E79D1DE3DB5800CEB5A8 /* Products */,
+				2083E7B71DE3DCDB00CEB5A8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2083E79D1DE3DB5800CEB5A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2083E79C1DE3DB5800CEB5A8 /* Music FFT.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2083E79E1DE3DB5800CEB5A8 /* Music FFT */ = {
+			isa = PBXGroup;
+			children = (
+				2083E79F1DE3DB5800CEB5A8 /* AppDelegate.swift */,
+				2083E7A11DE3DB5800CEB5A8 /* ViewController.swift */,
+				2083E7A31DE3DB5800CEB5A8 /* Main.storyboard */,
+				2083E7A61DE3DB5800CEB5A8 /* Assets.xcassets */,
+				2083E7A81DE3DB5800CEB5A8 /* LaunchScreen.storyboard */,
+				2083E7AB1DE3DB5800CEB5A8 /* Info.plist */,
+				2083E7BA1DE3DF9B00CEB5A8 /* Music FFT-Bridging-Header.h */,
+			);
+			path = "Music FFT";
+			sourceTree = "<group>";
+		};
+		2083E7B71DE3DCDB00CEB5A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2083E7C51DE40A2600CEB5A8 /* Accelerate.framework */,
+				2083E7B11DE3DC0800CEB5A8 /* SpotifyAudioPlayback.framework */,
+				2083E7B21DE3DC0800CEB5A8 /* SpotifyAuthentication.framework */,
+				2083E7B31DE3DC0800CEB5A8 /* SpotifyMetadata.framework */,
+				2083E7B81DE3DCDB00CEB5A8 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2083E79B1DE3DB5700CEB5A8 /* Music FFT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2083E7AE1DE3DB5800CEB5A8 /* Build configuration list for PBXNativeTarget "Music FFT" */;
+			buildPhases = (
+				2083E7981DE3DB5700CEB5A8 /* Sources */,
+				2083E7991DE3DB5700CEB5A8 /* Frameworks */,
+				2083E79A1DE3DB5700CEB5A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Music FFT";
+			productName = "Music FFT";
+			productReference = 2083E79C1DE3DB5800CEB5A8 /* Music FFT.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2083E7941DE3DB5700CEB5A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Mateo Olaya Bernal";
+				TargetAttributes = {
+					2083E79B1DE3DB5700CEB5A8 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 65JJM7BL69;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2083E7971DE3DB5700CEB5A8 /* Build configuration list for PBXProject "Music FFT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2083E7931DE3DB5700CEB5A8;
+			productRefGroup = 2083E79D1DE3DB5800CEB5A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2083E79B1DE3DB5700CEB5A8 /* Music FFT */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2083E79A1DE3DB5700CEB5A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2083E7AA1DE3DB5800CEB5A8 /* LaunchScreen.storyboard in Resources */,
+				2083E7A71DE3DB5800CEB5A8 /* Assets.xcassets in Resources */,
+				2083E7A51DE3DB5800CEB5A8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2083E7981DE3DB5700CEB5A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2083E7A21DE3DB5800CEB5A8 /* ViewController.swift in Sources */,
+				2083E7C91DE40D1E00CEB5A8 /* CoreAudio.m in Sources */,
+				2083E7A01DE3DB5800CEB5A8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2083E7A31DE3DB5800CEB5A8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2083E7A41DE3DB5800CEB5A8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2083E7A81DE3DB5800CEB5A8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2083E7A91DE3DB5800CEB5A8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2083E7AC1DE3DB5800CEB5A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2083E7AD1DE3DB5800CEB5A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2083E7AF1DE3DB5800CEB5A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 65JJM7BL69;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Music FFT/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.molayab.Music-FFT";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Music FFT/Music FFT-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2083E7B01DE3DB5800CEB5A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 65JJM7BL69;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Music FFT/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.molayab.Music-FFT";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Music FFT/Music FFT-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2083E7971DE3DB5700CEB5A8 /* Build configuration list for PBXProject "Music FFT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2083E7AC1DE3DB5800CEB5A8 /* Debug */,
+				2083E7AD1DE3DB5800CEB5A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2083E7AE1DE3DB5800CEB5A8 /* Build configuration list for PBXNativeTarget "Music FFT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2083E7AF1DE3DB5800CEB5A8 /* Debug */,
+				2083E7B01DE3DB5800CEB5A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2083E7941DE3DB5700CEB5A8 /* Project object */;
+}
