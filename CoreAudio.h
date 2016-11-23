@@ -6,8 +6,8 @@
 //  Copyright © 2016 Mateo Olaya Bernal. All rights reserved.
 //
 
-#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <Accelerate/Accelerate.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 
 typedef struct {
     AudioStreamBasicDescription asbd;
@@ -17,10 +17,13 @@ typedef struct {
     Float32 *frequencyData;
 } SoundBuffer, *SoundBufferPtr;
 
-@protocol CoreAudioDelegate <NSObject>
-- (void)frecuencies:(Float32 *)frecuencies;
+
+@class AudioDevice;
+@protocol AudioDeviceDelegate <NSObject>
+@optional
+- (void)coreAudioController:(SPTCoreAudioController *)controller didReceivedFrecuenciesData:(float *)frecuencies;
 @end
 
-@interface CoreAudio : SPTCoreAudioController
-@property (nonatomic, strong) id<CoreAudioDelegate> fft_delegate;
+@interface AudioDevice : SPTCoreAudioController
+@property (nonatomic, unsafe_unretained) id<AudioDeviceDelegate> audioDelegate;
 @end

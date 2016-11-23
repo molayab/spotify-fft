@@ -9,13 +9,17 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate, SPTCoreAudioControllerDelegate, CoreAudioDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate, SPTCoreAudioControllerDelegate, AudioDeviceDelegate {
 
+    let BARS = 8
+    
     var window: UIWindow?
     var auth:SPTAuth!
     var player:SPTAudioStreamingController!
     var authViewController:UIViewController!
     var views:[UIView] = []
+    
+    var canRender:Bool = true
     
     var viewController:UIViewController!
 
@@ -33,11 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         
         self.player.delegate = self;
         
-        let audio = CoreAudio()
+        let audio = AudioDevice()
         try! player.start(withClientId: self.auth.clientID, audioController: audio, allowCaching: true)
         
         audio.delegate = self
-        audio.fft_delegate = self
+        audio.audioDelegate = self
         
         DispatchQueue.main.async {
             self.loginFlow()
@@ -63,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
                 
                 
                 
-                let width = (self.window?.bounds.width)! / 8
+                let width = (self.window?.bounds.width)! / CGFloat(self.BARS)
                 let y = self.window?.bounds.height
                 
                 var post = 0
@@ -81,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
                 
                 btn.addTarget(self, action: #selector(AppDelegate.next as (AppDelegate) -> () -> ()), for: .touchUpInside)
                 
-                for _ in 3...11 {
+                for _ in 0...self.BARS {
                     let view = UIView(frame: CGRect(x: Int(post), y: 0, width: Int(width), height: 30))
                     view.backgroundColor = UIColor.gray
                     
@@ -125,23 +129,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         player.playSpotifyURI("spotify:user:molayab:playlist:5nOlUs1zwctAa2talWYiwf", startingWith: 0, startingWithPosition: 0, callback: { (error) in
             
         })
+        player.setShuffle(true, callback: nil)
     }
     
-    func frecuencies(_ frecuencies: UnsafeMutablePointer<Float32>!) {
+    func coreAudioController(_ controller: SPTCoreAudioController!, didReceivedFrecuenciesData frecuencies: UnsafeMutablePointer<Float>!) {
+        
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.1, animations: {
-                for i in 0...8 {
-                    self.viewController.view.subviews[i].frame = CGRect(
-                        x: self.viewController.view.subviews[i].frame.origin.x,
-                        y: 0,
-                        width: self.viewController.view.subviews[i].frame.size.width,
-                        height: (abs((CGFloat(frecuencies[i]) * (self.window?.bounds.size.height)! * 2) + 1)))
-                }
+            
+        
+            if self.canRender {
+
                 
-                self.viewController.view.setNeedsDisplay()
-            })
+                UIView.animate(withDuration: 0.15, animations: {
+                    var i = 0
+                    for ii in [3, 12, 25, 50, 115, 200, 200, 255]{
+                        let f = (frecuencies[ii].isNaN) ? 1.0 : frecuencies[ii]
+                        
+                        if f.isInfinite {
+                            print("Frec \(ii): \(f.isInfinite)")
+                        }
+                        
+                        self.viewController.view.subviews[i].frame = CGRect(
+                            x: self.viewController.view.subviews[i].frame.origin.x,
+                            y: 0,
+                            width: self.viewController.view.subviews[i].frame.size.width,
+                            height: (f.isInfinite) ? 1 : CGFloat(f))
+                        
+                        i += 1
+                        
+                    }
+                }, completion: { (success) in
+                    self.canRender = true
+                })
+            }
         }
+        
+        
     }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

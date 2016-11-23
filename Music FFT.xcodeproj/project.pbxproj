@@ -18,6 +18,7 @@
 		2083E7B91DE3DCDB00CEB5A8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083E7B81DE3DCDB00CEB5A8 /* AVFoundation.framework */; };
 		2083E7C61DE40A2600CEB5A8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083E7C51DE40A2600CEB5A8 /* Accelerate.framework */; };
 		2083E7C91DE40D1E00CEB5A8 /* CoreAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2083E7C81DE40D1E00CEB5A8 /* CoreAudio.m */; };
+		20CCB8DC1DE5628000D6804E /* AuidoProcessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 20CCB8DA1DE5628000D6804E /* AuidoProcessor.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		2083E7C51DE40A2600CEB5A8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		2083E7C71DE40D1E00CEB5A8 /* CoreAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAudio.h; sourceTree = "<group>"; };
 		2083E7C81DE40D1E00CEB5A8 /* CoreAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAudio.m; sourceTree = "<group>"; };
+		20CCB8DA1DE5628000D6804E /* AuidoProcessor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AuidoProcessor.c; sourceTree = "<group>"; };
+		20CCB8DB1DE5628000D6804E /* AuidoProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuidoProcessor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 		2083E7931DE3DB5700CEB5A8 = {
 			isa = PBXGroup;
 			children = (
+				20CCB8DA1DE5628000D6804E /* AuidoProcessor.c */,
+				20CCB8DB1DE5628000D6804E /* AuidoProcessor.h */,
 				2083E7C71DE40D1E00CEB5A8 /* CoreAudio.h */,
 				2083E7C81DE40D1E00CEB5A8 /* CoreAudio.m */,
 				2083E79E1DE3DB5800CEB5A8 /* Music FFT */,
@@ -176,6 +181,7 @@
 				2083E7A21DE3DB5800CEB5A8 /* ViewController.swift in Sources */,
 				2083E7C91DE40D1E00CEB5A8 /* CoreAudio.m in Sources */,
 				2083E7A01DE3DB5800CEB5A8 /* AppDelegate.swift in Sources */,
+				20CCB8DC1DE5628000D6804E /* AuidoProcessor.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +310,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Music FFT/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.molayab.Music-FFT";
@@ -324,6 +333,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Music FFT/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.molayab.Music-FFT";
@@ -352,6 +364,7 @@
 				2083E7B01DE3DB5800CEB5A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
