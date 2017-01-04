@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
 
     let BARS = 8
     
+    var max:Float = 0
+    
     var window: UIWindow?
     var auth:SPTAuth!
     var player:SPTAudioStreamingController!
@@ -42,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         
         audio.delegate = self
         audio.audioDelegate = self
+        
+        UIApplication.shared.isIdleTimerDisabled = true
         
         DispatchQueue.main.async {
             self.loginFlow()
@@ -125,11 +129,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     }
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-        player.setShuffle(true, callback: nil)
         player.playSpotifyURI("spotify:user:molayab:playlist:5nOlUs1zwctAa2talWYiwf", startingWith: 0, startingWithPosition: 0, callback: { (error) in
             
         })
-        player.setShuffle(true, callback: nil)
     }
     
     func coreAudioController(_ controller: SPTCoreAudioController!, didReceivedFrecuenciesData frecuencies: UnsafeMutablePointer<Float>!) {
@@ -137,30 +139,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         DispatchQueue.main.async {
             
         
-            if self.canRender {
 
-                
-                UIView.animate(withDuration: 0.15, animations: {
-                    var i = 0
-                    for ii in [3, 12, 25, 50, 115, 200, 200, 255]{
-                        let f = (frecuencies[ii].isNaN) ? 1.0 : frecuencies[ii]
+                for ii in 0...self.BARS{
+                    let f = frecuencies[ii]
+                    
+                    if f > self.max {
+                        self.max = f
                         
-                        if f.isInfinite {
-                            print("Frec \(ii): \(f.isInfinite)")
-                        }
-                        
-                        self.viewController.view.subviews[i].frame = CGRect(
-                            x: self.viewController.view.subviews[i].frame.origin.x,
-                            y: 0,
-                            width: self.viewController.view.subviews[i].frame.size.width,
-                            height: (f.isInfinite) ? 1 : CGFloat(f))
-                        
-                        i += 1
-                        
+                        print("Maximo: \(self.max)"
+                        )
                     }
-                }, completion: { (success) in
-                    self.canRender = true
-                })
+                    
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.viewController.view.subviews[ii].frame = CGRect(
+                            x: self.viewController.view.subviews[ii].frame.origin.x,
+                            y: 0,
+                            width: self.viewController.view.subviews[ii].frame.size.width,
+                            height: f.isNaN ? 0 : (CGFloat(logf(f > 0 ? f : 1))) * 20)
+
+                    }, completion: { (success) in
+                        
+                    })
+  
+                
             }
         }
         

@@ -14,6 +14,8 @@ OSStatus fft_processor(void *inRefCon, UInt32 frames, AudioBufferList *ioData) {
     size_t buffer_data_size = (size_t)ioData->mBuffers[0].mDataByteSize;
     void * buffer = malloc(buffer_data_size);
     
+    float factor = 1.0 / (2 * frames);
+    
     fft_audio_processor_t * context = (fft_audio_processor_t *)inRefCon;
     
     vDSP_Length len = log2(frames);
@@ -39,16 +41,16 @@ OSStatus fft_processor(void *inRefCon, UInt32 frames, AudioBufferList *ioData) {
     vDSP_fft_zrip(fft, &C, 1, len, FFT_FORWARD);
     
     
+    //vDSP_vsmul(C.realp, 1, &factor, C.realp, 1, n);
+    //vDSP_vsmul(C.imagp, 1, &factor, C.imagp, 1, n);
+    
     // Covertir COMPLEX_SPLIT (C) en las magnitudes.
     float amplitude[frames];
+
     
-    amplitude[0] = C.realp[0] / (frames * 2);
-    for (int i = 1; i < frames; ++i) {
-        // Guardar valor como dB: 20log(2magnitud / N) donde N es len.
-        float magnitude = sqrtf(C.realp[i] * C.realp[i]) + (C.imagp[i] * C.imagp[i]);
-        amplitude[i] = 20 * log10f((2 * magnitude) / len);
-    }
+    vDSP_zvmags(&C, 1, amplitude, 1, n);
     
+
     
     context->data = (float *)malloc(sizeof(float) * frames);
     context->frames = (size_t)frames;
